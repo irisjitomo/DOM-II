@@ -184,17 +184,31 @@ textContentDiv.addEventListener('click', () => {
     textContentDiv.style.padding = '20px'
 })
 
-// _________________________________________________________________________
+//__________ stopPropagation ____________________//
 
-// const funBusLogo = document.querySelector('.main-navigation h1');
-// document.addEventListener('mousemove', e => {
-//     let x = event.clientX * 4 / window.innerWidth + '%';
-//     let y = event.clientY * 3 / window.innerHeight + '%';
+const destinationDiv = document.querySelectorAll('.destination')[2]
+destinationDiv.addEventListener('click', () => {
+    destinationDiv.style.background = 'red';
+    destinationDiv.style.color = 'white';
+    destinationDiv.style.padding = '20px';
+})
 
-// for(let i=0;i<2;i++){
-//     funBusLogo[i].style.left = x;
-//     funBusLogo[i].style.top = y;
-//     funBusLogo[i].style.transform ="translate(-"+x+", -"+y+")";
-//   }
-// });
+const destinationButton = document.querySelectorAll('.btn')[2]
+destinationButton.addEventListener('click', e => {
+    destinationButton.style.background = 'white';
+    destinationButton.style.color = 'red';
+    e.stopPropagation();
+})
+
+// ____________________preventDefault____________________________//
+
+const navLink = document.querySelectorAll('.nav-link');
+navLink.forEach(event => {
+    event.addEventListener('click', e => {
+        alert("It's all good in the hood");
+        event.stopPropagation();
+        event.preventDefault();
+    })
+})
+
 
